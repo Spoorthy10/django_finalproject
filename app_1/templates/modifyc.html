@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modify comic</title>
+</head>
+<body>
+    <div class="container" align="center">
+        {%for msg in messages %}
+            <h4>{{msg}}</h4>
+        {% endfor %}
+    </div>
+    <div class="container" align="center">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if form %}
+            <table>
+                    <tr><th><label for="id_Bookname">Bookname</label></th><td><input type="text" name="Bookname" value="{{form.Bookname}}" maxlength="30" required id="id_Bookname"></td></tr>
+                    <tr><th><label for="id_Author">Author</label></th><td><input type="text" name="Author" value="{{form.Author}}" maxlength="200" required id="id_Author"></td></tr>
+                    <tr><th><label for="id_Price">Price</label></th><td><input type="number" name="Price" value="{{form.Price}}" step="any" required id="id_Price"></td></tr>
+                    <tr><th><label for="id_Summary">Summary</label></th><td><input type="text" name="Summary" value="{{form.Summary}}"  required id="id_Summary"></td></tr>
+                    <tr><th><label for="id_pimage">pimage</label></th><td><img src="{{form.Book.url}}" alt="no img found" height="100" width="150"></td></tr>
+                    <tr><th><label for="id_Book">Book</label></th><td><input type="file" name="pimg" accept="image/*" id="id_Book"></td></tr>
+            </table>
+            {% endif %}
+            <input type="submit", value="modifycomic">
+
+        </form>
+            <br><br>
+        <a href="/app_1/readc/">display the product</a>
+        </div>
+</body>
+</html>

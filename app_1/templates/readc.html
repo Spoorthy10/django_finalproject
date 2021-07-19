@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>read</title>
+</head>
+<body>
+    
+
+    <div class="container" align="center">
+        {%for msg in messages %}
+            <h4>{{msg}}</h4>
+        {% endfor %}
+    </div>
+    <div class="container" align="center">
+        <table border="2">
+            <th>bookid</th>
+            <th>bookname</th>
+            <th>bookauthor</th>
+            <th>bookprice</th>
+            <th>summary</th>
+            <th>bookimage</th>
+            <th>modifyproduct</th>
+            <th>deleteproduct</th>
+
+
+            {% for i in form %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.Bookname}}</td>
+                <td>{{i.Author}}</td>
+                <td>{{i.Price}}</td>
+                <td>{{i.Summary}}</td>
+                <td><img src="{{i.Book.url}}" alt="no img found" height="100" width="150"></td>
+                <td><a href="/app_1/modifyc/{{i.id}}">modify</a></td>
+                <td><a href="/app_1/deletec/{{i.id}}">delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <a href="/app_1/createc/">create the product</a>
+    </div>
+    
+</body>
+</html>
