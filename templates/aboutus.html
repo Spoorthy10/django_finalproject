@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aboutus</title>
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+</head>
+<body>
+    {%include 'partials/_navbar.html' %}
+    {%include 'partials/_topbar.html' %}
+    <br><br><br><br>
+<div class="about">
+    <h1>ABOUT US</h1><br>
+    <p>BOOKCORNER is a website that helps you to know about your favourite books. This site servers you the information 
+        about your favourite books.
+    </p>
+    <p>An ebook is a text presented in a format which allows it to be read on a computer or handheld device.
+        This site shares the links of the books you ask.
+    </p>
+    <p>Knowledge is power, and power is best shared among readers. </p>
+</div>
+
+    <br><br><br><br>
+    {%include 'partials/_footerbar.html' %}
+</body>
+</html>

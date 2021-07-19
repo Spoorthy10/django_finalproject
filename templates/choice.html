@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>choice</title>
+</head>
+<body>
+    {%include 'partials/_navbar.html' %}
+    {%include 'partials/_topbar.html' %}
+    <br><br><br><br>
+
+    {% for msg in messages %}
+    <div>
+        <strong>{{msg}}</strong>
+    </div>
+    {% endfor %}
+    {% if user.is_authenticated %}
+    <h3>Welcome  {{user.username}} </h3>
+    <h4><a href="{% url 'logout' %}">LOGOUT</a></h4>
+    {% else %}
+    <p>you are not logged in</p>
+    <h4><a href="{% url 'login' %}">LOGIN</a></h4>
+    {% endif %}
+    <br><br>
+
+
+    <section class="one">
+        <a href="/app_1/readh/"><img height="300px" width="400px" title="HORROR" src="{% static 'images/main/horror.png'%}" alt="image"></a>
+        <a href="/app_1/readc/"><img height="300px" width="400px"  title="COMICS" src="{% static 'images/main/comic.jfif'%}" alt="image"></a>
+    </section>
+        <br><br>
+        <section class="two">
+        <a href="/app_1/readhis/"><img height="300px" width="400px" title="HISTORY" src="{% static 'images/main/history.jfif'%}" alt="image"></a>
+        <a href="/app_1/readad/"><img height="300px" width="400px" title="ADVENTURE" src="{% static 'images/main/adven.jfif'%}" alt="image"></a>
+    </section>
+    
+
+
+    <br><br><br><br>
+    {%include 'partials/_footerbar.html' %}
+    
+</body>
+</html>
